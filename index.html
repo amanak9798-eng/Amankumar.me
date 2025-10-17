@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimized Title & Description -->
+    <title>Aman Kumar | Marketing Analytics & Product Strategy Consultant</title>
+    <meta name="description" content="Experienced marketing analyst and product strategist based in India. I help businesses make data-driven decisions to improve user experience and drive growth. Let's connect!">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Tailwind Config -->
+    <style>
+        :root {
+            --background: #f8fafc; /* slate-50 */
+            --text-primary: #1e293b; /* slate-800 */
+            --text-secondary: #475569; /* slate-600 */
+            --card-background: #ffffff;
+            --border-color: #e2e8f0; /* slate-200 */
+            --ai-response-bg: #f1f5f9; /* slate-100 */
+        }
+
+        html.dark {
+            --background: #0f172a; /* slate-900 */
+            --text-primary: #f1f5f9; /* slate-100 */
+            --text-secondary: #94a3b8; /* slate-400 */
+            --card-background: #1e293b; /* slate-800 */
+            --border-color: #334155; /* slate-700 */
+            --ai-response-bg: #1e293b; /* slate-800 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        html.dark .glass-effect {
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Simple loading spinner */
+        .loader {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        html.dark .loader {
+            border: 4px solid #334155;
+            border-top: 4px solid #60a5fa;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .ai-response {
+            background-color: var(--ai-response-bg);
+            border-left: 4px solid var(--border-color);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: { '50': '#eff6ff', '100': '#dbeafe', '200': '#bfdbfe', '300': '#93c5fd', '400': '#60a5fa', '500': '#3b82f6', '600': '#2563eb', '700': '#1d4ed8', '800': '#1e40af', '900': '#1e3a8a', '950': '#172554' },
+                        background: 'var(--background)',
+                        'text-primary': 'var(--text-primary)',
+                        'text-secondary': 'var(--text-secondary)',
+                        'card-background': 'var(--card-background)',
+                        'border-color': 'var(--border-color)',
+                        'ai-response-bg': 'var(--ai-response-bg)'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="transition-colors duration-300">
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-tight text-text-primary">Aman Kumar</a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-text-secondary hover:text-primary-500 transition duration-300">About</a>
+                <a href="#experience" class="text-text-secondary hover:text-primary-500 transition duration-300">Experience</a>
+                <a href="#case-studies" class="text-text-secondary hover:text-primary-500 transition duration-300">Case Studies</a>
+                <a href="#projects" class="text-text-secondary hover:text-primary-500 transition duration-300">Projects</a>
+                <a href="#contact" class="text-text-secondary hover:text-primary-500 transition duration-300">Contact</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                 <button id="theme-toggle" class="text-text-secondary hover:text-primary-500 transition-colors duration-300">
+                    <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM8 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z"></path></svg>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-text-primary">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2 bg-card-background border-t border-border-color">
+            <a href="#about" class="block text-text-secondary hover:text-primary-500 transition duration-300 py-2">About</a>
+            <a href="#experience" class="block text-text-secondary hover:text-primary-500 transition duration-300 py-2">Experience</a>
+            <a href="#case-studies" class="block text-text-secondary hover:text-primary-500 transition duration-300 py-2">Case Studies</a>
+            <a href="#projects" class="block text-text-secondary hover:text-primary-500 transition duration-300 py-2">Projects</a>
+            <a href="#contact" class="block text-text-secondary hover:text-primary-500 transition duration-300 py-2">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <section id="home" class="py-20 md:py-32 flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="md:w-2/3 text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-text-primary mt-2 mb-6 leading-tight">
+                    Hi, I'm Aman Kumar
+                </h1>
+                <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto md:mx-0">
+                    I'm a marketing and finance professional who leverages data analytics and strategic insights to drive business growth and optimize performance.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                    <a href="#contact" class="w-full sm:w-auto bg-primary-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-primary-700 transition-transform duration-300 hover:scale-105 shadow-lg text-center">
+                        Get In Touch
+                    </a>
+                    <a href="https://www.linkedin.com/in/aman-kumar-kp" class="w-full sm:w-auto border-2 border-slate-300 dark:border-slate-600 text-text-secondary font-bold px-6 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-300 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/3">
+                <img src="profile img.png" alt="A professional headshot of Aman Kumar" class="rounded-full shadow-2xl mx-auto border-8 border-card-background object-cover w-48 h-48 md:w-64 md:h-64">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-24">
+            <div class="grid md:grid-cols-5 gap-12 items-start">
+                <div class="md:col-span-3 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-6">About Me</h2>
+                    <div class="text-lg text-text-secondary space-y-4">
+                        <p>I am a detail-oriented professional with a strong foundation in both marketing analytics and financial principles. My passion lies at the intersection of these two fields—using data to understand customer behavior not just to drive engagement, but to directly impact the bottom line.</p>
+                        <p>Whether it's dissecting campaign ROI, analyzing marketing spend for efficiency, or optimizing user funnels for profitability, I thrive on translating complex datasets into clear, actionable strategies. I believe the most successful marketing efforts are those that are both creative and financially sound.</p>
+                    </div>
+                </div>
+                <div class="md:col-span-2 reveal">
+                    <h3 class="text-2xl font-bold text-text-primary mb-6">Core Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">Marketing Analytics</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">Financial Analysis</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">ROI Analysis</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">Product Strategy</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">UI/UX Audits</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">Excel & PowerBi</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">Google Analytics (GA4)</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">Data Visualization</span>
+                        <span class="bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-300 text-sm font-medium px-4 py-2 rounded-full">Market Research</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-12 md:py-12">
+            <div class="text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-text-primary">Professional Experience</h2>
+                <p class="text-lg text-text-secondary mt-4 max-w-2xl mx-auto">My journey in marketing, finance, and analytics.</p>
+            </div>
+            <div class="mt-16 max-w-3xl mx-auto space-y-20 relative border-l-2 border-border-color pl-14">
+                <!-- Timeline Item 1 -->
+                <div class="reveal">
+                    <div class="absolute -left-3.5 mt-1.5 w-6 h-6 bg-primary-500 rounded-full border-4 border-card-background"></div>
+                    <p class="text-sm font-semibold text-primary-500">Jul 2025 - Sep 2025</p>
+                    <h3 class="text-xl font-bold text-text-primary mt-1">Finance Intern, Bulls and Bear Advisory</h3>
+                    <p class="text-text-secondary mt-2">Achieved 8% portfolio growth on a demo account by developing financial models that informed strategic market decisions. Gained analytical rigor that now supports product and market analysis.</p>
+                </div>
+                 <!-- Timeline Item 2 -->
+                <div class="reveal">
+                    <div class="absolute -left-3.5 mt-1.5 w-6 h-6 bg-primary-500 rounded-full border-4 border-card-background"></div>
+                    <p class="text-sm font-semibold text-primary-500">Nov 2022 - Feb 2024</p>
+                    <h3 class="text-xl font-bold text-text-primary mt-1">Travel Consultant, Get Trip GO</h3>
+                    <p class="text-text-secondary mt-2">Managed over 300 clients and built 50+ vendor partnerships. Boosted sales by 25% through strategic marketing, customer engagement, and consultative selling techniques, achieving 95% client satisfaction.</p>
+                </div>
+                 <!-- Timeline Item 3 -->
+                 <div class="reveal">
+                    <div class="absolute -left-3.5 mt-1.5 w-6 h-6 bg-primary-500 rounded-full border-4 border-card-background"></div>
+                    <p class="text-sm font-semibold text-primary-500">Jul 2022 - Aug 2022</p>
+                    <h3 class="text-xl font-bold text-text-primary mt-1">Job Trainee, Indus Vacations Pvt Ltd</h3>
+                    <p class="text-text-secondary mt-2">Coordinated travel solutions for 10-15 clients weekly, developing strong customer service and problem-solving skills in a fast-paced environment.</p>
+                </div>
+                 <!-- Timeline Item 4 -->
+                 <div class="reveal">
+                    <div class="absolute -left-3.5 mt-1.5 w-6 h-6 bg-primary-500 rounded-full border-4 border-card-background"></div>
+                    <p class="text-sm font-semibold text-primary-500">Jan 2021 - May 2021</p>
+                    <h3 class="text-xl font-bold text-text-primary mt-1">Industrial Training, The Fern Residency</h3>
+                    <p class="text-text-secondary mt-2">Assisted in event coordination and stakeholder management, gaining hands-on experience in hospitality operations and client relations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section id="case-studies" class="py-20 md:py-24">
+            <div class="text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-text-primary">Case Studies</h2>
+                <p class="text-lg text-text-secondary mt-4 max-w-2xl mx-auto">How I solve real-world business problems.</p>
+            </div>
+            <div class="mt-16 grid md:grid-cols-1 gap-12">
+                <!-- Case Study 1 -->
+                <div id="case-study-1" class="case-study-container reveal bg-card-background rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2"><img class="h-64 w-full object-cover md:h-full" src="https://placehold.co/800x600/3b82f6/ffffff?text=E-commerce" alt="E-commerce Analytics Dashboard"></div>
+                        <div class="md:w-1/2 p-8 md:p-12">
+                            <span class="text-sm font-semibold text-primary-500">E-commerce Analytics</span>
+                            <h3 class="text-2xl font-bold text-text-primary mt-2 case-title">Reducing Cart Abandonment by 20%</h3>
+                            <div class="mt-4 text-text-secondary space-y-3 case-content">
+                                <p><strong class="text-text-primary">Situation:</strong> A local e-commerce store struggled with a high cart abandonment rate of over 75%.</p>
+                                <p><strong class="text-text-primary">Action:</strong> I conducted a full UI/UX audit, analyzed user behavior in Google Analytics, and designed a simplified, three-step checkout flow.</p>
+                                <p><strong class="text-text-primary">Result:</strong> The new design led to a 20% reduction in cart abandonment and a 5% increase in average order value within the first quarter.</p>
+                            </div>
+                             <button class="analyze-case-study-btn mt-6 text-primary-600 dark:text-primary-400 font-semibold hover:underline">✨ Analyze this Case Study with AI</button>
+                        </div>
+                    </div>
+                    <div class="ai-response-container p-8 md:p-12 border-t border-border-color hidden"></div>
+                </div>
+                <!-- Case Study 2 -->
+                 <div id="case-study-2" class="case-study-container reveal bg-card-background rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                     <div class="md:flex items-center flex-row-reverse">
+                        <div class="md:w-1/2"><img class="h-64 w-full object-cover md:h-full" src="https://placehold.co/800x600/1d4ed8/ffffff?text=Marketing" alt="Marketing Campaign Dashboard"></div>
+                        <div class="md:w-1/2 p-8 md:p-12">
+                            <span class="text-sm font-semibold text-primary-500">Marketing Campaign Analysis</span>
+                            <h3 class="text-2xl font-bold text-text-primary mt-2 case-title">Optimizing Ad Spend for 30% Higher ROI</h3>
+                            <div class="mt-4 text-text-secondary space-y-3 case-content">
+                                <p><strong class="text-text-primary">Situation:</strong> A SaaS company was spending heavily on digital ads across multiple platforms with unclear returns.</p>
+                                <p><strong class="text-text-primary">Action:</strong> I implemented conversion tracking with GA4, built a performance dashboard, and analyzed channel effectiveness. Identified that 40% of the budget was spent on underperforming channels.</p>
+                                <p><strong class="text-text-primary">Result:</strong> Reallocated budget to top-performing channels, increasing overall marketing ROI by 30% in two months while maintaining the same ad spend.</p>
+                            </div>
+                            <button class="analyze-case-study-btn mt-6 text-primary-600 dark:text-primary-400 font-semibold hover:underline">✨ Analyze this Case Study with AI</button>
+                        </div>
+                    </div>
+                    <div class="ai-response-container p-8 md:p-12 border-t border-border-color hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-24">
+            <div class="text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-text-primary">Personal Projects</h2>
+                <p class="text-lg text-text-secondary mt-4 max-w-2xl mx-auto">Explorations in data, finance, and technology.</p>
+            </div>
+            <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="reveal bg-card-background p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Interactive Sales Dashboard</h3>
+                    <p class="text-text-secondary mb-4">An advanced Excel dashboard visualizing sales data across regions, products, and time. Features dynamic filters and KPI tracking.</p>
+                    <a href="#" class="font-semibold text-primary-500 hover:underline">View on GitHub &rarr;</a>
+                </div>
+                 <!-- Project 2 -->
+                <div class="reveal bg-card-background p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Customer Segmentation Analysis</h3>
+                    <p class="text-text-secondary mb-4">A project using SQL and Python to perform RFM (Recency, Frequency, Monetary) analysis on a sample dataset to identify key customer segments.</p>
+                    <a href="#" class="font-semibold text-primary-500 hover:underline">View on GitHub &rarr;</a>
+                </div>
+                 <!-- Project 3 -->
+                <div class="reveal bg-card-background p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    <h3 class="text-xl font-bold text-text-primary mb-2">Competitor Analysis Report</h3>
+                    <p class="text-text-secondary mb-4">A comprehensive market research report on the competitive landscape for a fictional startup, identifying market gaps and strategic opportunities.</p>
+                    <a href="#" class="font-semibold text-primary-500 hover:underline">Read the Report &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 bg-slate-100 dark:bg-slate-800/50 -mx-6 px-6 rounded-t-3xl">
+            <div class="text-center max-w-3xl mx-auto reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-text-primary">Have a Challenge? Let's Solve It.</h2>
+                <p class="text-lg text-text-secondary mt-4">Describe your business challenge below, and my AI assistant will instantly draft a custom pitch outlining how I can help.</p>
+                <div class="mt-8 flex flex-col items-center gap-4">
+                     <textarea id="problem-description" placeholder="e.g., 'Our user sign-up rate has dropped by 15% last month and we don't know why.'" class="w-full max-w-md px-4 py-3 rounded-lg border border-border-color bg-card-background text-text-primary focus:ring-2 focus:ring-primary-500 focus:outline-none transition h-28 resize-none"></textarea>
+                     <button id="generate-pitch-btn" class="bg-primary-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-primary-700 transition-transform duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                        ✨ Generate Custom Pitch
+                    </button>
+                    <div id="pitch-response-container" class="w-full max-w-md mt-4 text-left"></div>
+                </div>
+                 <div class="mt-12 text-center">
+                    <p class="text-text-secondary">Or, feel free to reach out directly.</p>
+                    <a href="mailto:aryamankp2002@gmail.com" class="font-bold text-primary-600 dark:text-primary-400 hover:underline text-lg">
+                        aryamankp2002@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400">
+        <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <p>&copy; 2025 Aman Kumar. Designed with passion.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition duration-300">LinkedIn</a>
+                <a href="#" class="hover:text-white transition duration-300">GitHub</a>
+                <a href="mailto:aryamankp2002@gmail.com" class="hover:text-white transition duration-300">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Theme Toggle ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobile-menu a, #header a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href').startsWith('#')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // --- Scroll Animations ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
+
+        // --- Gemini API Integration ---
+        const API_KEY = "AIzaSyADFIq4pOXr-UxlcJtMb1auoa409W9zfvU"; // Kept empty as per instructions
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
+        
+        // --- Function to call Gemini API with exponential backoff ---
+        async function callGeminiAPI(prompt, maxRetries = 3) {
+            let attempt = 0;
+            while (attempt < maxRetries) {
+                try {
+                    const payload = {
+                        contents: [{ parts: [{ text: prompt }] }],
+                    };
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+        
+                    if (!response.ok) {
+                       throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+        
+                    const result = await response.json();
+                    if (result.candidates && result.candidates[0].content.parts[0].text) {
+                        return result.candidates[0].content.parts[0].text;
+                    } else {
+                        throw new Error('Invalid response structure from API.');
+                    }
+                } catch (error) {
+                    console.error(`API call failed on attempt ${attempt + 1}:`, error);
+                    attempt++;
+                    if (attempt >= maxRetries) {
+                        return "Sorry, there was an error processing the request with the AI model. Please try again later.";
+                    }
+                    const delay = Math.pow(2, attempt) * 1000;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+        }
+        
+        // --- Case Study Analysis Feature ---
+        const analyzeButtons = document.querySelectorAll('.analyze-case-study-btn');
+        analyzeButtons.forEach(button => {
+            button.addEventListener('click', async (e) => {
+                const container = e.target.closest('.case-study-container');
+                const responseContainer = container.querySelector('.ai-response-container');
+                const caseTitle = container.querySelector('.case-title').innerText;
+                const caseContent = container.querySelector('.case-content').innerText;
+        
+                responseContainer.classList.remove('hidden');
+                responseContainer.innerHTML = '<div class="loader mx-auto"></div>';
+        
+                const prompt = `As a professional hiring manager, analyze the following case study titled "${caseTitle}". Based on this text: "${caseContent}". Briefly highlight the key skills demonstrated and the potential business impact in 2-3 bullet points. Start with a short introductory sentence.`;
+                
+                const aiResponse = await callGeminiAPI(prompt);
+                
+                // Simple markdown-to-HTML
+                const formattedResponse = aiResponse
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n\s?\*\s/g, '<li class="mt-2">')
+                    .replace(/\n/g, '<br>');
+
+                responseContainer.innerHTML = `
+                    <div class="ai-response p-4 rounded-lg">
+                        <p class="text-text-secondary">${formattedResponse}</p>
+                    </div>`;
+            });
+        });
+        
+        // --- Custom Pitch Generator Feature ---
+        const generatePitchBtn = document.getElementById('generate-pitch-btn');
+        const problemDescription = document.getElementById('problem-description');
+        const pitchResponseContainer = document.getElementById('pitch-response-container');
+
+        generatePitchBtn.addEventListener('click', async () => {
+            const clientProblem = problemDescription.value.trim();
+            if (!clientProblem) {
+                pitchResponseContainer.innerHTML = `<p class="text-red-500 text-center">Please describe your business challenge.</p>`;
+                return;
+            }
+            
+            generatePitchBtn.disabled = true;
+            pitchResponseContainer.innerHTML = '<div class="loader mx-auto"></div>';
+
+            const prompt = `Act as a freelance marketing and product strategist named Aman. A potential client has described their challenge: "${clientProblem}". Based on this, write a **short, impactful, and convincing pitch**. The pitch itself should be **no more than 4-5 sentences**. It must directly address their problem and propose my expertise as the clear solution. The tone should be confident and professional. IMPORTANT: After the short pitch, add a final, standalone paragraph that is a clear call to action, such as: "I am confident I can deliver value here. Would you be open to a brief 15-minute call next week to discuss this further?". Do not offer any purely financial services.`;
+
+            const aiResponse = await callGeminiAPI(prompt);
+            
+            // Format response into paragraphs with better spacing
+            const paragraphs = aiResponse.split('\n').filter(p => p.trim() !== '');
+            const formattedResponse = paragraphs.map(p => `<p class="mb-3">${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>`).join('');
+
+
+            pitchResponseContainer.innerHTML = `
+                <div class="ai-response p-4 rounded-lg">
+                    <div id="pitch-text">${formattedResponse}</div>
+                </div>
+                <div class="mt-4 text-center" id="feedback-prompt">
+                    <p class="text-sm text-text-secondary mb-3">Can I help you further?</p>
+                    <div class="flex justify-center items-center gap-4">
+                        <button class="feedback-btn-yes font-semibold bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg transition-colors duration-300">Yes</button>
+                        <button class="feedback-btn-no font-semibold bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition-colors duration-300">No</button>
+                    </div>
+                </div>
+                <div id="pitch-contact-form" class="hidden mt-6 p-4 rounded-lg bg-card-background border border-border-color">
+                    <h4 class="font-bold text-text-primary text-center">Great! Let's connect.</h4>
+                    <p class="text-sm text-text-secondary mb-4 text-center">Please provide your details below to proceed.</p>
+                    <form id="contact-submission-form">
+                        <input type="hidden" id="hidden-pitch" name="pitch">
+                        <input type="hidden" id="hidden-problem" name="client_problem">
+                        <div class="space-y-3">
+                            <input type="text" name="name" placeholder="Your Name" class="w-full px-3 py-2 rounded-md border border-border-color bg-background focus:ring-1 focus:ring-primary-500 focus:outline-none" required>
+                            <input type="email" name="email" placeholder="Your Email" class="w-full px-3 py-2 rounded-md border border-border-color bg-background focus:ring-1 focus:ring-primary-500 focus:outline-none" required>
+                            <button type="submit" class="w-full bg-primary-600 text-white font-bold py-2 rounded-md hover:bg-primary-700 transition-colors">Submit & Request Call</button>
+                        </div>
+                    </form>
+                </div>
+                 <div id="form-success-message" class="hidden mt-6 text-center p-4 rounded-lg bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300">
+                    <p class="font-semibold">Thank you! I'll be in touch shortly.</p>
+                </div>
+            `;
+            generatePitchBtn.disabled = false;
+
+            // --- Event Listeners for new elements ---
+            document.querySelector('.feedback-btn-yes').addEventListener('click', () => {
+                 document.getElementById('feedback-prompt').classList.add('hidden');
+                 document.getElementById('pitch-contact-form').classList.remove('hidden');
+                 // Store the plain text of the pitch
+                 document.getElementById('hidden-pitch').value = document.getElementById('pitch-text').innerText;
+                 // Store the client's original problem description
+                   document.getElementById('hidden-problem').value = document.getElementById('problem-description').value;
+            });
+
+            document.querySelector('.feedback-btn-no').addEventListener('click', () => {
+                document.getElementById('feedback-prompt').innerHTML = `<p class="text-sm text-text-secondary text-center">Thank you for your time.</p>`;
+            });
+
+            document.getElementById('contact-submission-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const data = new FormData(form);
+                
+                // Replace with your Formspree URL
+                const formspreeURL = 'https://formspree.io/f/xqaynwzp'; // e.g., 'https://formspree.io/f/your_unique_code'
+
+                if (!formspreeURL) {
+                     console.log("Lead Captured (local):", Object.fromEntries(data.entries()));
+                     document.getElementById('pitch-contact-form').classList.add('hidden');
+                     document.getElementById('form-success-message').classList.remove('hidden');
+                     return;
+                }
+
+                fetch(formspreeURL, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        document.getElementById('pitch-contact-form').classList.add('hidden');
+                        document.getElementById('form-success-message').classList.remove('hidden');
+                        form.reset();
+                    } else {
+                        alert('Oops! There was a problem submitting your form. Please try again.');
+                    }
+                }).catch(error => {
+                    alert('Oops! There was a network error. Please try again.');
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
+
