@@ -328,7 +328,7 @@
         <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <p>&copy; 2025 Aman Kumar. Designed with passion.</p>
             <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white transition duration-300">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/aman-kumar-kp" class="hover:text-white transition duration-300">LinkedIn</a>
                 <a href="#" class="hover:text-white transition duration-300">GitHub</a>
                 <a href="mailto:aryamankp2002@gmail.com" class="hover:text-white transition duration-300">Email</a>
             </div>
@@ -480,7 +480,7 @@
             generatePitchBtn.disabled = true;
             pitchResponseContainer.innerHTML = '<div class="loader mx-auto"></div>';
 
-            const prompt = `Act as a freelance marketing and product strategist named Aman. A potential client has described their challenge: "${clientProblem}". Based on this, write a **short, impactful, and convincing pitch**. The pitch itself should be **no more than 4-5 sentences**. It must directly address their problem and propose my expertise as the clear solution. The tone should be confident and professional. IMPORTANT: After the short pitch, add a final, standalone paragraph that is a clear call to action, such as: "I am confident I can deliver value here. Would you be open to a brief 15-minute call next week to discuss this further?". Do not offer any purely financial services.`;
+            const prompt = `Act as a freelance marketing and product strategist named Aman. A potential client has described their challenge: "${clientProblem}". Based on this, write a **short, impactful, and convincing pitch**. The pitch itself should be **no more than 3-4 sentences**. It must directly address their problem and propose my expertise as the clear solution. The tone should be confident and professional. IMPORTANT: After the short pitch, add a final, standalone paragraph that is a clear call to action, such as: "I am confident I can deliver value here. Would you be open to a brief 15-minute call next week to discuss this further?". Do not offer any purely financial services.`;
 
             const aiResponse = await callGeminiAPI(prompt);
             
@@ -521,12 +521,12 @@
 
             // --- Event Listeners for new elements ---
             document.querySelector('.feedback-btn-yes').addEventListener('click', () => {
-                 document.getElementById('feedback-prompt').classList.add('hidden');
-                 document.getElementById('pitch-contact-form').classList.remove('hidden');
-                 // Store the plain text of the pitch
-                 document.getElementById('hidden-pitch').value = document.getElementById('pitch-text').innerText;
-                 // Store the client's original problem description
-                   document.getElementById('hidden-problem').value = document.getElementById('problem-description').value;
+                document.getElementById('feedback-prompt').classList.add('hidden');
+                document.getElementById('pitch-contact-form').classList.remove('hidden');
+                // Store the plain text of the pitch
+                document.getElementById('hidden-pitch').value = document.getElementById('pitch-text').innerText;
+                // Store the client's original problem description
+                document.getElementById('hidden-problem').value = document.getElementById('problem-description').value;
             });
 
             document.querySelector('.feedback-btn-no').addEventListener('click', () => {
