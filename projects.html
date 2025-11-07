@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Aman Kumar</title>
+    <meta name="description" content="A collection of personal projects by Aman Kumar, demonstrating skills in data analysis, visualization, and market research.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Tailwind Config (Copied from index.html for consistency) -->
+    <style>
+        :root {
+            --background: #f8fafc; /* slate-50 */
+            --text-primary: #1e293b; /* slate-800 */
+            --text-secondary: #475569; /* slate-600 */
+            --card-background: #ffffff;
+            --border-color: #e2e8f0; /* slate-200 */
+        }
+
+        html.dark {
+            --background: #0f172a; /* slate-900 */
+            --text-primary: #f1f5f9; /* slate-100 */
+            --text-secondary: #94a3b8; /* slate-400 */
+            --card-background: #1e293b; /* slate-800 */
+            --border-color: #334155; /* slate-700 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        html.dark .glass-effect {
+            background: rgba(15, 23, 42, 0.6);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: { '50': '#eff6ff', '100': '#dbeafe', '200': '#bfdbfe', '300': '#93c5fd', '400': '#60a5fa', '500': '#3b82f6', '600': '#2563eb', '700': '#1d4ed8', '800': '#1e40af', '900': '#1e3a8a', '950': '#172554' },
+                        background: 'var(--background)',
+                        'text-primary': 'var(--text-primary)',
+                        'text-secondary': 'var(--text-secondary)',
+                        'card-background': 'var(--card-background)',
+                        'border-color': 'var(--border-color)',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="js/main.js" defer></script>
+</head>
+<body class="transition-colors duration-300">
+
+<div id="header-placeholder"></div>
+
+    <main class="container mx-auto px-6 py-20 md:py-32">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-text-primary">Personal Projects</h1>
+            <p class="text-xl text-text-secondary mt-6">A collection of my personal explorations where I apply my skills in data, finance, and technology to real-world scenarios.</p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Project 1: Sales Dashboard -->
+            <div class="bg-card-background rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                <img src="Dashboard-thumbnail.png" alt="Thumbnail of an interactive sales dashboard created in Excel" class="rounded-t-lg object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <span class="text-sm font-semibold text-green-600 dark:text-green-400">Data Visualization</span>
+                    <h3 class="text-xl font-bold text-text-primary mt-1 mb-2">Interactive Sales Dashboard</h3>
+                    <p class="text-text-secondary mb-4 flex-grow">A comprehensive sales dashboard in MS Excel to track KPIs, visualize sales trends, and filter data by region and product.</p>
+                    <div class="mt-auto pt-4 border-t border-border-color">
+                         <h4 class="text-sm font-semibold text-text-primary mb-3">Tools & Tech:</h4>
+                         <div class="flex flex-wrap gap-2">
+                             <span class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">MS Excel</span>
+                             <span class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">Pivot Tables</span>
+                             <span class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">Data Analysis</span>    
+                         </div>
+                         <a href="https://github.com/amanak9798-eng/Excel-Sales-Dashboard" class="font-semibold text-primary-500 hover:underline self-start">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: This Portfolio -->
+            <div class="bg-card-background rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                <img src="website portfolio.png" alt="Thumbnail of a professional portfolio website project" class="rounded-t-lg object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <span class="text-sm font-semibold text-blue-600 dark:text-blue-400">Web Development</span>
+                    <h3 class="text-xl font-bold text-text-primary mt-1 mb-2">Professional Portfolio Website</h3>
+                    <p class="text-text-secondary mb-4 flex-grow">A responsive, modern portfolio built from scratch featuring interactive AI integrations via the Gemini API to engage potential clients.</p>
+                     <div class="mt-auto pt-4 border-t border-border-color">
+                         <h4 class="text-sm font-semibold text-text-primary mb-3">Tools & Tech:</h4>
+                         <div class="flex flex-wrap gap-2">
+                             <span class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">HTML5</span>
+                             <span class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">Tailwind CSS</span>
+                              <span class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">JavaScript</span>
+                             <span class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1 rounded-full">Gemini API</span>
+                         </div>
+                         <a href="https://github.com/amanak9798-eng/Excel-Sales-Dashboard" class="font-semibold text-primary-500 hover:underline self-start">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- A card for your future AI projects -->
+            <div class="bg-card-background rounded-xl border-2 border-dashed border-border-color flex flex-col items-center justify-center p-6 text-center">
+                 <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a7.5 7.5 0 01-7.5 0" /></svg>
+                 </div>
+                <h3 class="text-lg font-bold text-text-primary">Future AI Projects</h3>
+                <p class="text-text-secondary mt-1 text-sm">This is where the exciting AI-powered tools we discussed will be showcased.</p>
+            </div>
+
+        </div>
+    </main>
+
+<div id="footer-placeholder"></div>
+
+    <script>
+        // --- Theme Toggle ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+
